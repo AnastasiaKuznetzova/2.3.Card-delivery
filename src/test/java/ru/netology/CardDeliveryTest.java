@@ -27,7 +27,7 @@ public class CardDeliveryTest {
         $("[data-test-id=phone] input").setValue(DataGenerator.Registration.generateUser().getPhone());
         $("[data-test-id=agreement]").click();
         $$("button").find(exactText("Запланировать")).click();
-        $(" [data-test-id='success-notification']").waitUntil(visible, 100000)
+        $(" [data-test-id='success-notification']").waitUntil(visible, 150000)
                 .shouldHave(text("Успешно! Встреча успешно запланирована на " + DataGenerator.Registration.getDate(3)));
         $(".calendar-input input").sendKeys(Keys.CONTROL + "a");
         $(".calendar-input input").sendKeys(Keys.DELETE);
