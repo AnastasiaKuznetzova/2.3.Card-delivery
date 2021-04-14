@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.8.1'
 }
 
 group 'ru.netology'
@@ -12,13 +13,21 @@ compileTestJava.options.encoding = "UTF-8"
 repositories {
     mavenCentral()
 }
+allure {
+    autoconfigure = true
+    version = '2.13.0' // Latest Allure Version
+    useJUnit5 {
+        version = '2.13.0' // Latest Allure Version
+    }
+}
+
 
 dependencies {
     implementation 'org.jetbrains:annotations:20.1.0'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
     testImplementation 'com.codeborne:selenide:5.14.2'
     testImplementation 'com.github.javafaker:javafaker:1.0.1'
-
+    testImplementation 'io.qameta.allure:allure-selenide:2.13.0'
 }
 
 test {

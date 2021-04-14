@@ -11,6 +11,7 @@ public class DataGenerator {
     }
 
     public static class Registration {
+
         private Registration() {
         }
 
@@ -22,7 +23,7 @@ public class DataGenerator {
         public static String getDate(int date) {
             LocalDate today = LocalDate.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-            LocalDate newDate=today.plusDays(date);
+            LocalDate newDate = today.plusDays(date);
             return formatter.format(newDate);
         }
     }

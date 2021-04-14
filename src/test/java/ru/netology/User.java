@@ -1,7 +1,6 @@
 package ru.netology;
 
 
-
 public class User {
     private final String city;
     private final String name;
