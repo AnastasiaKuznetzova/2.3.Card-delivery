@@ -27,7 +27,6 @@ public class CardDeliveryTest {
     @BeforeEach
     void setUp() {
         open("http://localhost:9999/");
-
     }
 
 
@@ -42,15 +41,6 @@ public class CardDeliveryTest {
         $("[data-test-id=agreement]").click();
         $$("button").find(exactText("Запланировать")).click();
         $(" [data-test-id='success-notification']").waitUntil(visible, 150000)
-                .shouldHave(text("Успешно! Встреча успешно запланирована на " + DataGenerator.Registration.getDate(3)));
-        $(".calendar-input input").sendKeys(Keys.CONTROL + "a");
-        $(".calendar-input input").sendKeys(Keys.DELETE);
-        $(".calendar-input input").sendKeys(DataGenerator.Registration.getDate(4));
-        $$("button").find(exactText("Запланировать")).click();
-        $(" [data-test-id='replan-notification']")
-                .shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
-        $$("button").find(exactText("Перепланировать")).click();
-        $(" [data-test-id='success-notification']")
                 .shouldHave(text("Успешно! Встреча успешно запланирована на " + DataGenerator.Registration.getDate(3)));
     }
 }
